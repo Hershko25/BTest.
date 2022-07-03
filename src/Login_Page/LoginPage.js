@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import Button from '../assets/Button';
 import HeaderBack from '../assets/HeaderBack';
 import { useNavigate } from 'react-router-dom';
 import Btest from '../assets/Btest';
 import Dr4 from '../Image/Dr4.png';
+import { head } from '../Context/Store';
 
 
 const Main = styled.main`
@@ -70,7 +71,7 @@ export default function LoginPage() {
   const [Password, setPassword] = useState();
   const [IsValid, setIsValid] = useState(false);
   const navigate = useNavigate();
-
+  const UserInfo=useContext(head);
 
   async function login(event) {
     event.preventDefault();
@@ -86,8 +87,9 @@ export default function LoginPage() {
         }
         else {
           console.log(data);
-          // IndexArray.Set_The_Array_Index(result);
-          // navigate('/Feed')
+          localStorage.setItem('json', data)
+          UserInfo.setIsLogin(true);
+          navigate('/feed')
         }
 
       } catch {
@@ -114,7 +116,7 @@ export default function LoginPage() {
         </form>
       </div>
       <div className='img-footer'>
-        <img src={Dr4} alt='dr' style={{ width: '70%',height:'80%' }} />
+        <img src={Dr4} alt='dr' style={{ width: '70%', height: '80%' }} />
       </div>
     </Main>
   )

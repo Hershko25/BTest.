@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -8,7 +9,6 @@ import styled from 'styled-components';
 const Box=styled.div`
 
     width: 90%;
-    height: 180px;
     background: rgba(255, 255, 255, 0.06);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
@@ -27,13 +27,14 @@ const Box=styled.div`
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 25px;
-    overflow-x: scroll;
     padding-left: 10px;
 
 
 `;
-export default function FeedBox({title,text,IndexStatus}) {
+export default function FeedBox({title,text,IndexStatus,full_index}) {
 
+
+    const navigate=useNavigate();
     let color;
     if(IndexStatus==='Above' || IndexStatus==='Below'){
          color='red';
@@ -42,8 +43,14 @@ export default function FeedBox({title,text,IndexStatus}) {
         color='green'
     }
 
+    const get_full_index_explation=()=>{
+
+      navigate('/fullindex',{state:{index:full_index}})
+          
+    }
+
   return (
-    <Box color={color}>
+    <Box color={color} onClick={get_full_index_explation}>
         <h3>{title}</h3>
         <p>{text}</p>
         <p>קרא עוד{' >'}</p>

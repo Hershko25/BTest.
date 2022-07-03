@@ -99,10 +99,15 @@ export default function ScannerPage() {
       let tempnamefile = [];
       filename.map(per => tempnamefile.push(per[0]));
       UserFile.setUserPdf(tempnamefile);
-      if (UserFile.IsUser) {
+      if (UserFile.IsUser && !UserFile.New_Report) {
         navigate('/Healthquestionnaire')
       }
+      else if (UserFile.New_Report) {
+        UserFile.setAnonymousUserPdf(tempnamefile);
+        navigate('/newreport');
+      }
       else {
+        UserFile.setAnonymousUserPdf(tempnamefile);
         navigate('/AnonymousUser')
       }
 
@@ -140,7 +145,7 @@ export default function ScannerPage() {
           </div>
           :
           <div className='next'>
-            <Button onClick={()=>navigate('/ManualReport')}>להזנה ידנית לחץ כאן</Button>
+            <Button onClick={() => navigate('/ManualReport')}>להזנה ידנית לחץ כאן</Button>
           </div>
       }
     </Main>

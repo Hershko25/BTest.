@@ -31,7 +31,7 @@ text-align: center;
 
   svg{
     fill:none;
-    stroke:#8a3ab9;
+    stroke:#0d9da1 ;
     stroke-linecap: round;
     stroke-width:3;
     stroke-dasharray: 1;
@@ -50,11 +50,9 @@ text-align: center;
 }
 @keyframes stroke-draw {
   from{
-    stroke:#4062d2 ;
     stroke-dasharray: 1;
   }
   to{
-    stroke:#05bab8 ;
     transform:rotate(180deg);
     stroke-dasharray: 8;
   }

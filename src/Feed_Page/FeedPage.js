@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
-import { json } from '../JSON/tempjson';
 import Header from './Header';
 import Dr5 from '../Image/Dr5.png';
 import FeedBox from '../assets/FeedBox';
 import Storie from './Storie';
 import NavBar from './NavBar';
+import Chart from './Chart';
+import Bmi from '../Feed_Page/Bmi';
+import { head } from '../Context/Store';
 
 
 
@@ -40,29 +42,53 @@ const Main = styled.main`
 `;
 
 export default function FeedPage() {
+
+
+    const UserInfo = useContext(head);
+
+    useEffect(() => {
+
+        if (localStorage.getItem('json') !== null) {
+            UserInfo.setUserJson(JSON.parse(localStorage.getItem('json')))
+        }
+
+    }, [])
+
+
     return (
-        <Main>
-            <div className='container'>
-                <Header />
-                <div>
-                    <Storie />
-                </div>
-                <div className='title'>
-                    <img src={Dr5} alt='dr' style={{ width: '40%', height: '100%' }} />
-                    <h4> {json.User} ברוך הבא</h4>
-                </div>
-                <div className='index-list'>
-                    {
-                        json.Indexs.map((per, key) => <FeedBox
-                            key={key}
-                            title={per.Index_Name_He}
-                            text={per.The_purpose_of_the_test}
-                            IndexStatus={per.IndexStatus}
-                        />)
-                    }
-                </div>
-            </div>
-            <NavBar/>
-        </Main>
+        <>
+            {
+                UserInfo.UserJson !== undefined &&
+
+                <Main>
+                    <div className='container'>
+                        <Header />
+                        <div>
+                            <Storie />
+                        </div>
+                        <div className='title'>
+                            <img src={Dr5} alt='dr' style={{ width: '40%', height: '100%' }} />
+                            <h4>  ברוך הבא - {UserInfo.UserJson.UserName}</h4>
+                        </div>
+                        <div>
+                            <Chart />
+                            <Bmi/>
+                        </div>
+                        <div className='index-list'>
+                            {
+                                UserInfo.UserJson.Indexs.map((per, key) => <FeedBox
+                                    key={key}
+                                    title={per.Index_Name_He}
+                                    text={per.The_purpose_of_the_test}
+                                    IndexStatus={per.IndexStatus} ת
+                                    full_index={per}
+                                />)
+                            }
+                        </div>
+                    </div>
+                    <NavBar />
+                </Main>
+            }
+        </>
     )
 }

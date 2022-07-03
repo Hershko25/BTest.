@@ -5,6 +5,7 @@ import Button from '../assets/Button';
 import HeaderBack from '../assets/HeaderBack';
 import { head } from '../Context/Store';
 import { useNavigate } from 'react-router-dom';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Main = styled.main`
 
@@ -72,6 +73,7 @@ export default function SignInPage() {
   const [Birthday, setBirthday] = useState();
   const [PassWord, setPassWord] = useState();
   const [IsValid, setIsValid] = useState();
+  const [loader, setloader] = useState(false);
   const User = useContext(head);
   const navigate = useNavigate();
 
@@ -102,11 +104,13 @@ export default function SignInPage() {
   }
 
   async function Isvalidmail() {
+    setloader(true);
     try {
       const response = await fetch(`http://localhost:60311/api/regiuser/mailcheck/${Email}`);
       const data = await response.json();
       if (data !== "User not exist") {
         setIsValid('מייל קיים במערכת')
+        setloader(false);
       }
       else {
         User.setUserProfile(Full_Name, Email, Birthday, PassWord);
@@ -136,7 +140,9 @@ export default function SignInPage() {
         <input type='text' placeholder='מייל' onChange={(e) => setEmail(e.target.value)} />
         <input type='text' placeholder='סיסמה' onChange={(e) => setPassWord(e.target.value)} />
         <input type='date' onChange={(e) => setBirthday(e.target.value)} />
-        <Button>המשך</Button>
+        {
+          !loader ? <Button>המשך</Button> :<div><p style={{color:'white'}}>מתחבר</p><br/><CircularProgress/></div>
+        }
       </form>
       <p onClick={nouser} className='no-user'>אני מעדיף לא להרשם</p>
       <img src={Dr} alt='Btest' style={{ width: '63%', height: '28%', marginRight: 'auto' }} />

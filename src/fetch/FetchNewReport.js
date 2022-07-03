@@ -17,33 +17,35 @@ const Main = styled.main`
 
 
 `;
+//fix admin
+export default function FetchNewReport() {
 
-export default function FetchSignIn() {
+    const navigate=useNavigate();
 
     const UserInfo = useContext(head);
-    const navigate=useNavigate();
-    const apiurl = 'http://localhost:60311/api/RegiUser';
+    const apiurl = 'http://localhost:60311/api/RegiUser/admin';
     const settings = {
         method: 'POST',
-        body: JSON.stringify(UserInfo.UserInfo),
+        body: JSON.stringify(UserInfo.AnonymousUser),
         headers: new Headers({
             'Content-Type': 'application/json; charset=UTF-8',
             'Accept': 'application/json; charset=UTF-8',
         })
-    };
-
+      };
+ 
 
     useEffect(() => {
-        fetch(apiurl, settings)
-            .then((res) => {
-                return res.json();
-            }).then((resJson) => {
-                console.log(resJson);
-                UserInfo.setIsLogin(true);
-                localStorage.setItem('json', resJson)
-                navigate('/feed')
-            })
-            .catch(() => console.log('error'))
+        fetch(apiurl,settings)
+        .then((res)=>{
+             return res.json();
+        }).then((resJson)=>{
+            console.log(resJson);
+            UserInfo.setUserInfo(JSON.parse(resJson))
+            localStorage.clear();
+            localStorage.setItem('json', resJson)
+            navigate('/feed')
+        })
+            .catch(()=>console.log('error'))
     }, [])
 
 

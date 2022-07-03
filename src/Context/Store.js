@@ -15,13 +15,19 @@ export default function Store({ children }) {
         FileName: []
     })
 
+    const [IsLogin, setIsLogin] = useState(false);
+
     const [AnonymousUser, setAnonymousUser] = useState({
         "UserIndexs": [],
         "PDF": true,
         "FileName": []
     })
 
+    const [UserJson, setUserJson] = useState();
+
     const [IsUser, setIsUser] = useState(true);
+
+    const [New_Report, setNew_Report] = useState(false);
 
     const setUserProfile = (Full_Name, Email, Birthday, Password) => {
         let tempUserInfo = UserInfo;
@@ -59,16 +65,16 @@ export default function Store({ children }) {
         setUserInfo(temp);
     }
 
-    const setAnonymousUserPdf=(filename)=>{
-        let temp=AnonymousUser;
-        temp.FileName=filename;
+    const setAnonymousUserPdf = (filename) => {
+        let temp = AnonymousUser;
+        temp.FileName = filename;
         setAnonymousUser(temp);
     }
 
-    const setAnonymousUsermanualReport = (index)=>{
-        let temp=AnonymousUser;
-        temp.UserIndexs=index;
-        temp.PDF=false;
+    const setAnonymousUsermanualReport = (index) => {
+        let temp = AnonymousUser;
+        temp.UserIndexs = index;
+        temp.PDF = false;
         setAnonymousUser(temp);
     }
 
@@ -82,10 +88,16 @@ export default function Store({ children }) {
             UserInfo: UserInfo,
             setUserInfo: setUserInfo,
             setAnonymousUserPdf,
-            AnonymousUser:AnonymousUser,
-            setAnonymousUsermanualReport:setAnonymousUsermanualReport,
-            IsUser:IsUser,
-            setIsUser:setIsUser
+            AnonymousUser: AnonymousUser,
+            setAnonymousUsermanualReport: setAnonymousUsermanualReport,
+            IsUser: IsUser,
+            setIsUser: setIsUser,
+            setNew_Report: setNew_Report,
+            New_Report: New_Report,
+            UserJson:UserJson,
+            setUserJson:setUserJson,
+            IsLogin:IsLogin,
+            setIsLogin:setIsLogin
         }}>
             {children}
         </head.Provider>

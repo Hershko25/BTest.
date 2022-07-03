@@ -1,15 +1,16 @@
 export const json={
     "User":"admin",
+    "UserName":"עומר אדם",
     "Birthday":"1997-04-12T00:00:00",
     "Height":1.7,
     "Weight":45.0,
     "Indexs":[
         {
-            "index_Value":90.0,
+            "index_Value":100,
             "IndexStatus":"Fine",
             "Recommend":null,
             "Foods":null,
-            "Index_Number":17,
+            "Index_Number":1,
             "Symbol":null,
             "Index_Name_En":"GLUCOSE",
             "Index_Name_He":"גלוקוז",
@@ -31,7 +32,7 @@ export const json={
             ]
         },
         {
-            "index_Value":0.89,
+            "index_Value":100,
             "IndexStatus":"Fine",
             "Recommend":null,
             "Foods":null,
@@ -135,7 +136,7 @@ export const json={
             ]
         },
         {
-            "index_Value":77.3,
+            "index_Value":50,
             "IndexStatus":"Fine",
             "Recommend":null,
             "Foods":null,
@@ -214,7 +215,141 @@ export const json={
         }
     ],
     "Cors":[
-        
+        {
+            "Index_Number":1,
+            "Q_number":"q1        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q10       ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q11       ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q12       ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q13       ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q14       ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q2        ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q3        ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q4        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q5        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q6        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q7        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q8        ",
+            "correlation":-0.84352739228697349
+        },
+        {
+            "Index_Number":1,
+            "Q_number":"q9        ",
+            "correlation":0.84352739228697349
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q1        ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q10       ",
+            "correlation":-0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q11       ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q12       ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q13       ",
+            "correlation":-0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q14       ",
+            "correlation":-0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q2        ",
+            "correlation":-0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q3        ",
+            "correlation":-0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q4        ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q5        ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q6        ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q7        ",
+            "correlation":0.7529294760025893
+        },
+        {
+            "Index_Number":2,
+            "Q_number":"q9        ",
+            "correlation":0.7529294760025893
+        }
     ],
     "aa":{
         "q1":"y         ",
@@ -233,3 +368,4 @@ export const json={
         "q14":"n         "
     }
 }
+

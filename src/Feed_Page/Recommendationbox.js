@@ -28,6 +28,7 @@ padding: 25px;
 text-align: right;
 color: white;
 font-size: 16px;
+border-radius: 15px;
 
 & h1{
   text-decoration: underline;

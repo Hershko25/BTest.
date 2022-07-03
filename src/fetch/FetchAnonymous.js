@@ -3,6 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import styled from 'styled-components';
 import Btest from '../assets/Btest';
 import { head } from '../Context/Store';
+import { useNavigate } from 'react-router-dom';
 
 
 const Main = styled.main`
@@ -20,6 +21,8 @@ const Main = styled.main`
 export default function FetchAnonymous() {
 
     const UserInfo = useContext(head);
+    const navigate = useNavigate();
+
     const apiurl = 'http://localhost:60311/api/user';
     const settings = {
         method: 'POST',
@@ -28,18 +31,20 @@ export default function FetchAnonymous() {
             'Content-Type': 'application/json; charset=UTF-8',
             'Accept': 'application/json; charset=UTF-8',
         })
-      };
- 
+    };
 
-    // useEffect(() => {
-    //     fetch(apiurl,settings)
-    //     .then((res)=>{
-    //          return res.json();
-    //     }).then((resJson)=>{
-    //         console.log(resJson);
-    //         UserInfo.setUserInfo(JSON.parse(resJson))})
-    //         .catch(()=>console.log('error'))
-    // }, [])
+
+    useEffect(() => {
+        fetch(apiurl, settings)
+            .then((res) => {
+                return res.json();
+            }).then((resJson) => {
+                console.log(resJson);
+                UserInfo.setUserInfo(JSON.parse(resJson))
+            })
+            .then(() => navigate('/AnonymousFeed'))
+            .catch(() => console.log('error'))
+    }, [])
 
 
     return (

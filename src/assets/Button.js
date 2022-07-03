@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Btn=styled.button`
 
 
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   border:solid #00cec8 2px;
   font-size: 14px;
   color: white;
@@ -13,6 +13,7 @@ const Btn=styled.button`
   border-radius: 25px;
   background-color: transparent;
   transition: all ease-in-out 0.3s;
+  margin-bottom: 15px;
   cursor: pointer;
   &:hover{
     background-color: #00cec8;

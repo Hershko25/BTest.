@@ -126,7 +126,7 @@ export default function ManualReportPage() {
     const setuserReport=()=>{
 
         UserReport.manualReport(selectedIndex);
-        navigate('/');
+        navigate('/SetManualReportPage');
       
     }
 

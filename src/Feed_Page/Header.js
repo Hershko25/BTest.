@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import styled from 'styled-components';
 import Btest from '../assets/Btest';
 import Button from '../assets/Button';
+import { head } from '../Context/Store';
 
 
 const Main = styled.header`
@@ -20,10 +21,19 @@ const Main = styled.header`
 `;
 
 export default function Header() {
+
+    const logout_user=useContext(head);
+
+
+   const logout=()=>{
+    localStorage.clear();
+    logout_user.setIsLogin(false);
+   }
+
     return (
         <Main>
             <Btest />
-            <Button>יציאה</Button>
+            <Button onClick={logout}>יציאה</Button>
         </Main>
     )
 }
