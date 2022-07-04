@@ -38,7 +38,6 @@ export default function FetchSignIn() {
             .then((res) => {
                 return res.json();
             }).then((resJson) => {
-                console.log(resJson);
                 UserInfo.setIsLogin(true);
                 localStorage.setItem('json', resJson)
                 navigate('/feed')

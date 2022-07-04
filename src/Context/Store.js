@@ -36,7 +36,6 @@ export default function Store({ children }) {
         tempUserInfo.Birthday = Birthday;
         tempUserInfo.Password = Password
         setUserInfo(tempUserInfo);
-        console.log(tempUserInfo);
     }
 
     const setUserPdf = (filename) => {
@@ -44,7 +43,6 @@ export default function Store({ children }) {
         tempUserInfo.FileName = filename;
         tempUserInfo.PDF = true;
         setUserInfo(tempUserInfo);
-        console.log(tempUserInfo)
     }
 
     const manualReport = (report) => {
@@ -52,7 +50,7 @@ export default function Store({ children }) {
         let temp = UserInfo;
         temp.UserIndexs = report;
         setUserInfo(temp);
-        console.log(temp);
+
 
     }
 
@@ -61,7 +59,6 @@ export default function Store({ children }) {
 
         let temp = UserInfo;
         temp.Health_Questionnaire = question;
-        console.log(temp);
         setUserInfo(temp);
     }
 

@@ -148,7 +148,6 @@ export default function HealthquestionnairePage() {
 
             let temp = questiones;
             temp[0][key] = ans;
-            console.log(temp);
             setquestiones(temp);
 
             return;
@@ -156,7 +155,6 @@ export default function HealthquestionnairePage() {
 
         let temp = questiones;
         temp[0]['q' + key] = ans;
-        console.log(temp);
         setquestiones(temp);
 
 

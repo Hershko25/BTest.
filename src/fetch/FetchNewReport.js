@@ -39,7 +39,6 @@ export default function FetchNewReport() {
         .then((res)=>{
              return res.json();
         }).then((resJson)=>{
-            console.log(resJson);
             UserInfo.setUserInfo(JSON.parse(resJson))
             localStorage.clear();
             localStorage.setItem('json', resJson)

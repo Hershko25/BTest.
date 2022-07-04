@@ -39,7 +39,6 @@ export default function FetchAnonymous() {
             .then((res) => {
                 return res.json();
             }).then((resJson) => {
-                console.log(resJson);
                 UserInfo.setUserInfo(JSON.parse(resJson))
             })
             .then(() => navigate('/AnonymousFeed'))
