@@ -23,7 +23,7 @@ export default function FetchAnonymous() {
     const UserInfo = useContext(head);
     const navigate = useNavigate();
 
-    const apiurl = 'http://localhost:60311/api/user';
+    const apiurl = 'https://proj.ruppin.ac.il/bgroup87/prod/api/user';
     const settings = {
         method: 'POST',
         body: JSON.stringify(UserInfo.AnonymousUser),

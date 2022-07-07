@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Btest from '../assets/Btest';
 import Dr4 from '../Image/Dr4.png';
 import { head } from '../Context/Store';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Main = styled.main`
 
@@ -17,6 +17,11 @@ const Main = styled.main`
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
+      
+      & .error{
+        color: red;
+      }
 
 
       & form{
@@ -72,6 +77,7 @@ export default function LoginPage() {
   const [IsValid, setIsValid] = useState(false);
   const navigate = useNavigate();
   const UserInfo=useContext(head);
+  const [loader, setloader] = useState(false);
 
   async function login(event) {
     event.preventDefault();
@@ -79,14 +85,15 @@ export default function LoginPage() {
       setIsValid(true)
     }
     else {
+      setloader(true);
       try {
-        const response = await fetch(`http://localhost:60311/api/RegiUser/${Email}/${Password}`);
+        const response = await fetch(`https://proj.ruppin.ac.il/bgroup87/prod/api/RegiUser/${Email}/${Password}`);
         const data = await response.json();
-        if (response.Message === 'Wrong password') {
+        if (data.Message === 'Wrong password') {
           setIsValid(true)
+          setloader(false)
         }
         else {
-          console.log(data);
           localStorage.setItem('json', data)
           UserInfo.setIsLogin(true);
           navigate('/feed')
@@ -95,6 +102,7 @@ export default function LoginPage() {
       } catch {
         console.log('error')
         setIsValid(true)
+        setloader(false)
       }
     }
   }
@@ -113,6 +121,9 @@ export default function LoginPage() {
           <input type='text' style={{ marginTop: '35px' }} placeholder='אימייל' onChange={(e) => setEmail(e.target.value)} />
           <input type='password' placeholder='סיסמה' onChange={(e) => setPassword(e.target.value)} />
           <Button >התחברות</Button>
+         {
+          loader &&  <CircularProgress/>
+         }
         </form>
       </div>
       <div className='img-footer'>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
-import Dr5 from '../Image/Dr5.png';
+import Dr from '../Image/Dr.png';
 import FeedBox from '../assets/FeedBox';
 import Storie from './Storie';
 import NavBar from './NavBar';
@@ -67,7 +67,7 @@ export default function FeedPage() {
                             <Storie />
                         </div>
                         <div className='title'>
-                            <img src={Dr5} alt='dr' style={{ width: '40%', height: '100%' }} />
+                            <img src={Dr} alt='dr' style={{ width: '40%', height: '100%' }} />
                             <h4>  ברוך הבא - {UserInfo.UserJson.UserName}</h4>
                         </div>
                         <div>

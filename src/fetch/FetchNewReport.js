@@ -17,13 +17,13 @@ const Main = styled.main`
 
 
 `;
-//fix admin
+//fix admin//fix
 export default function FetchNewReport() {
 
     const navigate=useNavigate();
 
     const UserInfo = useContext(head);
-    const apiurl = 'http://localhost:60311/api/RegiUser/admin';
+    const apiurl = `https://proj.ruppin.ac.il/bgroup87/prod/api/RegiUser/${UserInfo.UserJson.User}`;
     const settings = {
         method: 'POST',
         body: JSON.stringify(UserInfo.AnonymousUser),

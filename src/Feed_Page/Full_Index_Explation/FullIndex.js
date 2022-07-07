@@ -72,6 +72,10 @@ text-align: right;
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
+
+  & h4{
+       text-decoration: underline;
+  }
 }
 
 
@@ -129,15 +133,25 @@ export default function FullIndex() {
         <div className='box-index'>
           <div className='title'>
             <h4>{state.index.Index_Name_He} - {state.index.Index_Name_En}</h4>
+            <p>{state.index.The_purpose_of_the_test}</p>
+            <h4> התוצאה שלך למדד זה הינה {state.index.index_Value}</h4>
             <div className='norm'>
               <label>{state.index.Index_Max_Number}</label>
               <label>{state.index.Index_Min_Number}</label>
             </div>
             <h6 style={{ textAlign: 'center' }}>טווח הנורמה</h6>
-            <p>{state.index.The_purpose_of_the_test}</p>
+            {state.index.IndexStatus === 'Below' ? <><p >נראה כי זוהי תוצאות שנמצאת מתחת לטווח הנורמה </p></> : ''}
+            {state.index.IndexStatus === 'Above' ? <><h4 >נראה כי זוהי תוצאות שנמצאת מעל לטווח הנורמה</h4> </> : ''}
+            {state.index.IndexStatus === 'Fine' ? ` נראה כי תוצאות בדיקה זו נמצאת בטווח הנורמה והינה ${state.index.index_Value}.` : ''}
             {state.index.IndexStatus === 'Below' ? <><h4 >מה המשמעות של תוצאה מתחת לנורמה?</h4> <p>{state.index.Index_Explanation_below_norm}</p></> : ''}
             {state.index.IndexStatus === 'Above' ? <><h4 >מה המשמעות של תוצאה מעל לנורמה?</h4> <p>{state.index.Index_Explanation_above_norm}</p></> : ''}
-            {state.index.IndexStatus === 'Fine' ? ` נראה כי תוצאות בדיקה זו נמצאת בטווח הנורמה והינה ${state.index.index_Value}.` : ''}
+            
+            {
+              state.index.Recommend !== null && <p>{state.index.Recommend}</p>
+            }
+            {
+              state.index.Foods !==null && <> <h4>מזונות מומלצים לשיפור המדד</h4> <p>{state.index.Foods}</p></>
+            }
           </div>
           {UserInfo.UserJson.Cors.map((per_cors, key) => {
             if (per_cors.Index_Number === state.index.Index_Number) {

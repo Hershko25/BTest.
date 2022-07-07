@@ -1,6 +1,7 @@
 {
   "name": "btest",
   "version": "0.1.0",
+  "homepage": "ftp://bgroup87@194.90.158.74/bgroup87/prod/build/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.3",

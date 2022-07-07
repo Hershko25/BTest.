@@ -48,7 +48,7 @@ flex-direction: column;
 
 export default function ScannerPage() {
 
-  const apiurl = 'http://localhost:60311/api/PdfFile/';
+  const apiurl = 'https://proj.ruppin.ac.il/bgroup87/prod/api/PdfFile/';
   const [selectedFile, setSelectedFile] = useState(); //contains information on the currently picked file
   const [Counter, setCounter] = useState(0);
   const [filesent, setfilesent] = useState(false);

@@ -117,7 +117,6 @@ export default function SetManualReportPage() {
             let temp = Index_Value_Array.filter((per) => per.Index_Number !== event.target.id);
             if (event.target.value !== '') {
                 temp.push({ Index_Number: event.target.id, Value: event.target.value });
-                console.log(temp);
 
             }
             setIndex_Value_Array(temp);
@@ -126,7 +125,6 @@ export default function SetManualReportPage() {
         else {
             let temp = Index_Value_Array;
             temp.push({ Index_Number: event.target.id, Value: event.target.value });
-            console.log(temp);
             setIndex_Value_Array(temp);
         }
     }
@@ -167,7 +165,7 @@ export default function SetManualReportPage() {
                 <div className='end'>
                     <img src={Dr4} alt='dr' style={{ height: '100%', width: '40%' }} />
                     {
-                        Index_Value_Array.length === User_Index.UserInfo.UserIndexs.length &&
+                        Index_Value_Array.length  === User_Index.UserInfo.UserIndexs.length  &&
                         <Button onClick={setContextArray}>המשך</Button>
                     }
                 </div>
@@ -177,7 +175,3 @@ export default function SetManualReportPage() {
 }
 
 
-
-// Index_Number: e.target.id, Value: e.target.value
-
-//manualReport

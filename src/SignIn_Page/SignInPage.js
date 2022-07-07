@@ -75,6 +75,7 @@ export default function SignInPage() {
   const [IsValid, setIsValid] = useState();
   const [loader, setloader] = useState(false);
   const User = useContext(head);
+  const [date, setdate] = useState(false);
   const navigate = useNavigate();
 
   const ValidInfo = (e) => {
@@ -106,7 +107,7 @@ export default function SignInPage() {
   async function Isvalidmail() {
     setloader(true);
     try {
-      const response = await fetch(`http://localhost:60311/api/regiuser/mailcheck/${Email}`);
+      const response = await fetch(`https://proj.ruppin.ac.il/bgroup87/prod/api/regiuser/mailcheck/${Email}`);
       const data = await response.json();
       if (data !== "User not exist") {
         setIsValid('מייל קיים במערכת')
@@ -137,9 +138,9 @@ export default function SignInPage() {
       <form className='form' onSubmit={ValidInfo}>
         <label>שנייה לפני שנמשיך, הרשם וקבל פענוח מותאם אישית</label>
         <input type='text' placeholder='שם מלא' onChange={(e) => setFull_Name(e.target.value)} />
-        <input type='text' placeholder='מייל' onChange={(e) => setEmail(e.target.value)} />
-        <input type='text' placeholder='סיסמה' onChange={(e) => setPassWord(e.target.value)} />
-        <input type='date' onChange={(e) => setBirthday(e.target.value)} />
+        <input type='email' placeholder='מייל' onChange={(e) => setEmail(e.target.value)} />
+        <input type='password' placeholder='סיסמה' onChange={(e) => setPassWord(e.target.value)} />
+        <input type={date  ? 'date' : 'text'} placeholder="תאריך לידה" onFocus={()=>setdate(true)} onChange={(e) => setBirthday(e.target.value)}></input>
         {
           !loader ? <Button>המשך</Button> :<div><p style={{color:'white'}}>מתחבר</p><br/><CircularProgress/></div>
         }

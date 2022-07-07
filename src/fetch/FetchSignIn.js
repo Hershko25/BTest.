@@ -22,7 +22,7 @@ export default function FetchSignIn() {
 
     const UserInfo = useContext(head);
     const navigate=useNavigate();
-    const apiurl = 'http://localhost:60311/api/RegiUser';
+    const apiurl = 'https://proj.ruppin.ac.il/bgroup87/prod/api/RegiUser';
     const settings = {
         method: 'POST',
         body: JSON.stringify(UserInfo.UserInfo),

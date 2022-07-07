@@ -1,4 +1,4 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import HeaderBack from '../assets/HeaderBack';
 import { Index } from '../JSON/IndexJson';
@@ -6,8 +6,8 @@ import Dr2 from '../Image/Dr2.png'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import HighlightOffOutlinedIcon from '@mui/icons-material/HighlightOffOutlined';
 import Button from '../assets/Button';
-import {useNavigate} from 'react-router-dom';
-import {head} from '../Context/Store';
+import { useNavigate } from 'react-router-dom';
+import { head } from '../Context/Store';
 
 
 const Main = styled.main`
@@ -90,8 +90,8 @@ export default function ManualReportPage() {
 
     const [autocomplete, setautocomplete] = useState();
     const [selectedIndex, setselectedIndex] = useState([]);
-    const UserReport=useContext(head);
-    const navigate=useNavigate();
+    const UserReport = useContext(head);
+    const navigate = useNavigate();
 
     const jsonfilter = (e) => {
 
@@ -112,22 +112,20 @@ export default function ManualReportPage() {
         if (existingItem) {
             let temp = selectedIndex.filter((per) => per.key !== value.key)
             setselectedIndex(temp);
-            console.log(temp)
         }
         else {
             let temp = selectedIndex;
             temp.push({ name: value.name, key: value.key })
             setselectedIndex(temp);
-            console.log(temp)
         }
         setautocomplete();
     }
 
-    const setuserReport=()=>{
+    const setuserReport = () => {
 
         UserReport.manualReport(selectedIndex);
         navigate('/SetManualReportPage');
-      
+
     }
 
     return (
@@ -152,7 +150,7 @@ export default function ManualReportPage() {
                             <p style={{ color: 'white' }}>חפש מדדים</p>
                     }
                     {
-                        selectedIndex.length > 0 &&
+                        selectedIndex.length  > 0 &&
                         <ul className='list-selected'>
                             <li><p style={{ margin: 'auto' }}>מדדים נבחרים</p></li>
                             {
@@ -169,7 +167,7 @@ export default function ManualReportPage() {
             </div>
             <div className='img-div'>
                 {
-                    selectedIndex.length > 0 && <div style={{height:'70%',width:'40%',display:'flex',justifyContent:'center',alignItems:'center'}}><Button  onClick={setuserReport}>המשך</Button></div>
+                    selectedIndex.length > 0 && <div style={{ height: '70%', width: '40%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Button onClick={setuserReport}>המשך</Button></div>
                 }
                 <img src={Dr2} alt='Dr' style={{ width: '60%' }} />
             </div>
