@@ -150,7 +150,7 @@ export default function FullIndex() {
               state.index.Recommend !== null && <p>{state.index.Recommend}</p>
             }
             {
-              state.index.Foods !==null && <> <h4>מזונות מומלצים לשיפור המדד</h4> <p>{state.index.Foods}</p></>
+              state.index.Foods !==null   && <> <h4>מזונות מומלצים לשיפור המדד</h4> <p>{state.index.Foods}</p></>
             }
           </div>
           {UserInfo.UserJson.Cors.map((per_cors, key) => {

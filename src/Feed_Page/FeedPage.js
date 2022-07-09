@@ -17,7 +17,7 @@ const Main = styled.main`
 
     & .container{
         overflow-y: scroll;
-        height: 90vh;
+        height: 80vh;
     }
 
     & .title{
@@ -61,8 +61,8 @@ export default function FeedPage() {
                 UserInfo.UserJson !== undefined &&
 
                 <Main>
+                    <Header />
                     <div className='container'>
-                        <Header />
                         <div>
                             <Storie />
                         </div>
@@ -72,7 +72,7 @@ export default function FeedPage() {
                         </div>
                         <div>
                             <Chart />
-                            <Bmi/>
+                            <Bmi />
                         </div>
                         <div className='index-list'>
                             {

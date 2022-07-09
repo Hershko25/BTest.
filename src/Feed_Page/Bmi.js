@@ -27,7 +27,7 @@ font-size: 14px;
 & .bmi{
     display: flex;
     width: 100%;
-    Bmi.Height: 25px;
+    height: 25px;
     text-align: center;
     direction: ltr;
     margin-top: 15px;
@@ -63,7 +63,7 @@ font-size: 14px;
 
 & .arrow-container{
     width: 100%;
-    Bmi.Height: 15px;
+    height: 15px;
     box-sizing: border-box;
     padding-left: ${props => props.width};
     text-align: left;

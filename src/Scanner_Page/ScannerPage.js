@@ -95,7 +95,6 @@ export default function ScannerPage() {
 
     try {
       const respone = await fetch(`${apiurl}`, settings)
-      console.log('Success:', respone);
       let tempnamefile = [];
       filename.map(per => tempnamefile.push(per[0]));
       UserFile.setUserPdf(tempnamefile);
